@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model employees {
+  EMAIL          String    @id @db.VarChar(255)
+  NAME           String    @db.VarChar(255)
+  cevoIss        DateTime? @db.Date
+  dotExp         DateTime? @db.Date
+  palsExp        DateTime? @db.Date
+  aclsExp        DateTime? @db.Date
+  emsExp         DateTime? @db.Date
+  driversExp     DateTime? @db.Date
+  blsExp         DateTime? @db.Date
+  licensureLevel String?   @db.VarChar(50)
+  mvrExp         DateTime? @db.Date
+}
