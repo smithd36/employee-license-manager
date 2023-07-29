@@ -1,5 +1,5 @@
 // prisma/client.js
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 
 // Get the DATABASE_URL from the environment variable
 const env_url = process.env.DATABASE_URL;

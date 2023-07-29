@@ -1,4 +1,6 @@
 // pages/api/addEmployee.js
+
+const { parseISO } = require('date-fns');
 import prisma from "./prisma/client";
 
 export default async function handler(req, res) {
@@ -8,20 +10,23 @@ export default async function handler(req, res) {
 
   const { NAME, EMAIL, cevoIss, dotExp, palsExp, aclsExp, emsExp, driversExp, blsExp, licensureLevel, mvrExp } = req.body;
 
+  // Helper function to parse date fields only if not null
+  const parseDateIfNotNull = (dateString) => (dateString ? parseISO(dateString) : null);
+
   try {
     const newEmployee = await prisma.employees.create({
       data: {
         NAME,
         EMAIL,
-        cevoIss,
-        dotExp,
-        palsExp,
-        aclsExp,
-        emsExp,
-        driversExp,
-        blsExp,
+        cevoIss: parseDateIfNotNull(cevoIss), // parse date if not null with date-fns
+        dotExp: parseDateIfNotNull(dotExp),
+        palsExp: parseDateIfNotNull(palsExp),
+        aclsExp: parseDateIfNotNull(aclsExp),
+        emsExp: parseDateIfNotNull(emsExp),
+        driversExp: parseDateIfNotNull(driversExp),
+        blsExp: parseDateIfNotNull(blsExp),
         licensureLevel,
-        mvrExp,
+        mvrExp: parseDateIfNotNull(mvrExp),
       },
     });
 

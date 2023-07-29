@@ -20,3 +20,23 @@ model employees {
   licensureLevel String?   @db.VarChar(50)
   mvrExp         DateTime? @db.Date
 }
+
+model employee {
+  NAME            String?   @db.VarChar(25)
+  EMAIL           String    @id @db.VarChar(40)
+  CEVO_ISS        DateTime? @db.Date
+  DOT_EXP         DateTime? @db.Date
+  PALS_EXP        DateTime? @db.Date
+  ACLS_EXP        DateTime? @db.Date
+  EMS_EXP         DateTime? @db.Date
+  DRIVERS_EXP     DateTime? @db.Date
+  BLS_EXP         DateTime? @db.Date
+  LICENSURE_LEVEL String?   @db.VarChar(10)
+  MVR_EXP         DateTime? @db.Date
+}
+
+model users {
+  id       Int    @id @default(autoincrement())
+  email    String @db.VarChar(255)
+  password String @db.VarChar(255)
+}

@@ -1,10 +1,8 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Sidebar from "./Sidebar";
 import DeleteEmployee from './DeleteEmployee';
 import SearchEmployee from './SearchEmployee';
 import AddEmployee from "./AddEmployee";
-
 
 const Dashboard = () => {
   const { data: session, status } = useSession();
@@ -22,7 +20,6 @@ const Dashboard = () => {
   if (!session) {
     // user not authenticated, redirect to login
     router.replace("/");
-    return null;
   }
 
   if (session) {
@@ -35,7 +32,6 @@ const Dashboard = () => {
         <AddEmployee />
         <DeleteEmployee />
         <SearchEmployee />
-        <Sidebar />
       </div>
     )
   }
