@@ -6,16 +6,14 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   const { data: session } = useSession();
-  useEffect(() => {
-    handleRedirect();
-  }, []);
 
   function handleRedirect() {
     if (session) {
       router.push("/Dashboard");
     }
   }
-
+  
+  handleRedirect();
   return (
     <div className="container-home">
       <Login />
