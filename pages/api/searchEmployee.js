@@ -12,8 +12,8 @@ export default async function handler(req, res) {
       const results = await prisma.employees.findMany({
         where: {
           OR: [
-            { NAME: { contains: q } }, // Remove the 'mode' argument here
-            { EMAIL: { contains: q } }, // Remove the 'mode' argument here
+            { NAME: { contains: q } },
+            { EMAIL: { contains: q } },
           ],
         },
       });

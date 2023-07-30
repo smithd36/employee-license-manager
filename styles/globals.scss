@@ -1,3 +1,6 @@
+/* Beginning generic page styles - some may be blank as this program is 
+  developed with a primary backend focus and I am 3 days into the development process */
+
 * {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:#cdcdcd ;
@@ -31,6 +34,7 @@ button {
       }
 }
 
+/*LOGIN SECTION*/
 .session {
     display: flex;
     justify-content: center;
@@ -42,6 +46,15 @@ button {
     border-radius: 10%;
     color: #db981d;
     font-size: 1.5rem;
+
+    .welcome-image {
+        width: 50%;
+        object-fit: cover;
+        border-radius: 15%;
+        margin-right: 1rem;
+        margin-bottom: 20rem; // or margin-top: -20rem;
+        margin-left: 5rem;
+      }
 }
 
 #toggle-signin {
@@ -58,6 +71,8 @@ button {
         box-shadow: 0 0 10px rgba(219, 152, 27, 0.5);
       }
 }    
+
+/* DASHBOARD SECTION */
 .dashboard-container {
     display: flex;
     flex-direction: column;
@@ -69,6 +84,7 @@ button {
     }
 }
 
+/* ADD EMPLOYEE SECTION */ // THIS CODE WILL BE MODERNIZED, ONE MAN ARMY HERE
 .add-wrapper {
     .addEmp-container {
         display: grid;
@@ -122,8 +138,10 @@ button {
           }
         }
       }
-    }      
+    }    
+    
 
+/* DELETE EMPLOYEE SECTION */
 .delete-wrapper {
     margin-left: 0.5rem;
     margin-top: 1rem;
@@ -146,6 +164,8 @@ button {
         margin-left: 0.5125rem;
     }
 }
+
+/* SEARCH EMPLOYEE SECTION */
 .search-wrapper {
     position: relative;
     margin-top: -43.3rem;
@@ -158,7 +178,7 @@ button {
 
 }
 
-/* Normal styles for the table */
+/* SHOW ALL EMPLOYEES SECTION (i.e. pages/EmployeeList.js) */
 .table-container table {
     width: 100%;
     border-collapse: collapse;

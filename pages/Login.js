@@ -13,7 +13,7 @@ export default function Login() {
   }
   return <>
   <div className="session">
-    <img src="" alt="welcome-image" id="welcome-image" />
+      <img className="welcome-image" src="https://m.media-amazon.com/images/I/91+hOm7pX7L._AC_UF894,1000_QL80_.jpg" alt="welcome-image" id="welcome-image" />
       Not signed in <br/>
     </div>
     <button className="session" id="toggle-signin" onClick={() => signIn()}>Sign in</button>
