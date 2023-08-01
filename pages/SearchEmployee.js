@@ -1,10 +1,32 @@
 // components/SearchEmployee.js
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+
 
 const SearchEmployee = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [message, setMessage] = useState("");
+
+  //auth
+  const router = useRouter(); // used for redirecting
+  const { data: session } = useSession(); // grab session data
+  useEffect(() => {
+    handleRedirect();
+  }, []);
+
+  const handleRedirect = async () => {
+    //check if user email is within allowed list
+    const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
+    if (!session) {
+      router.push("/Login"); // Redirect to login if there is no session
+
+    } else if (!allowedEmails.includes(session.user.email)) {
+        router.push("/Unauthorized"); // Redirect to unauthorized if not allowed
+      }
+  }
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);

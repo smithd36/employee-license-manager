@@ -1,21 +1,25 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { ro } from "date-fns/locale";
+import { useSession, user, signIn, signOut } from "next-auth/react"
+import { useRouter } from "next/router"
+
 
 export default function Login() {
   const { data: session } = useSession()
+  const router = useRouter()
   if(session) {
-    return <>
-    <div className="session" id="true">
-      <img src="" alt="welcome-image" id="welcome-image" />
-        Signed in as {session.user.email} <br/>
-        </div>
-        <button className="session" id="toggle-signin" onClick={() => signOut()}>Sign out</button>
-    </>
+    router.push("/Dashboard");
   }
+
+
   return <>
-  <div className="session">
-      <img className="welcome-image" src="https://m.media-amazon.com/images/I/91+hOm7pX7L._AC_UF894,1000_QL80_.jpg" alt="welcome-image" id="welcome-image" />
-      Not signed in <br/>
+  <div className="session-container">
+    <div className="session">
+        <img className="welcome-image" alt="welcome-image" id="welcome-image" />
+        <h1>Not signed in</h1> <br/>
+        <button className="session" id="toggle-signin" onClick={() => signIn()}>Sign in</button>
+      </div>
+      <div className="page-color">
+      </div>
     </div>
-    <button className="session" id="toggle-signin" onClick={() => signIn()}>Sign in</button>
   </>
 }

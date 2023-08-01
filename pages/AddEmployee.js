@@ -1,7 +1,29 @@
 // components/AddEmployee.js
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const AddEmployee = () => {
+  //auth
+  const router = useRouter(); // used for redirecting
+  const { data: session } = useSession(); // grab session data
+  useEffect(() => {
+    handleRedirect();
+  }, []);
+
+  const handleRedirect = async () => {
+    //check if user email is within allowed list
+    const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
+    if (!session) {
+      router.push("/Login"); // Redirect to login if there is no session
+
+    } else if (!allowedEmails.includes(session.user.email)) {
+        router.push("/Unauthorized"); // Redirect to unauthorized if not allowed
+      }
+  }
+  
+  //  end auth
   const [employeeData, setEmployeeData] = useState({
     NAME: "",
     EMAIL: "",
@@ -58,7 +80,7 @@ const AddEmployee = () => {
 
   return (
       <div className="add-wrapper">
-      <button onClick={handleClick}>Add Employee</button>
+      <button id="add-toggle" onClick={handleClick}>Add Employee</button>
       <div className={`addEmp-container ${showForm ? 'show' : ''}`}>        <h2>Add Employee</h2>
       <label>
         Name:

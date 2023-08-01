@@ -1,8 +1,29 @@
 // components/EmployeeList.js
 import React, { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
+  const { data: session } = useSession();
+  const router = useRouter();
+  
+  useEffect(() => {
+    handleRedirect();
+  }, []);
+
+  const handleRedirect = async () => {
+    //check if user email is within allowed list
+    const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
+    if (!session) {
+      router.push("/Login"); // Redirect to login if there is no session
+
+    } else if (!allowedEmails.includes(session.user.email)) {
+        router.push("/Unauthorized"); // Redirect to unauthorized if not allowed
+      }
+  }
+
+
 
   const formatDate = (date) => {
     if (date) {

@@ -1,34 +1,48 @@
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import DeleteEmployee from './DeleteEmployee';
 import SearchEmployee from './SearchEmployee';
 import AddEmployee from "./AddEmployee";
 
-const Dashboard = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+const Dashboard = () => { 
 
-  const handleRoute = () => {
-    router.push('/EmployeeList');
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    handleRedirect();
+  }, []);
+
+  const handleRedirect = async () => {
+    //check if user email is within allowed list
+    const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
+    if (!session) {
+      router.push("/Login"); // Redirect to login if there is no session
+
+    } else if (!allowedEmails.includes(session.user.email)) {
+        router.push("/Unauthorized"); // Redirect to unauthorized if not allowed
+      }
   }
+
+  const showAll = () => {
+    router.push("/EmployeeList");
+  }
+
 
   if (status == "loading") {
     //show loader - will be modernized later
     return <div>Loading...</div>
   }
 
-  if (!session) {
-    // user not authenticated, redirect to login
-    router.replace("/");
-  }
-
-  if (session) {
+  if (status == "authenticated") {
     // user authenticated, show dashboard
     return (
       <div className="dashboard-container">
-        <h1>Secure Dashboard</h1>
+        <h1>Dashboard</h1>
+        <p>Signed in as {session.user.email}</p>
         {/* ... Dashboard content ... */}
-        <button id="show-all" onClick={ handleRoute }>Show All Employees</button>
+        <button id="show-all" onClick={ showAll }>Show All Employees</button>
         <AddEmployee />
         <DeleteEmployee />
         <SearchEmployee />

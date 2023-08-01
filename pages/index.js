@@ -14,6 +14,9 @@ export default function Home() {
     if (session) {
       router.push("/Dashboard");
     }
+    if(!session){
+      router.push("/Login");
+    }
   }
 
   return (
