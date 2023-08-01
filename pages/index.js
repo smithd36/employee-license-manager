@@ -6,9 +6,6 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   const { data: session } = useSession();
-  useEffect(() => {
-    handleRedirect();
-  }, []);
 
   function handleRedirect() {
     if (session) {
@@ -18,7 +15,8 @@ export default function Home() {
       router.push("/Login");
     }
   }
-
+  
+  handleRedirect();
   return (
     <div className="container-home">
       <Login />
