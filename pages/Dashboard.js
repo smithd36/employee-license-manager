@@ -38,14 +38,16 @@ const Dashboard = () => {
   if (status == "authenticated") {
     // user authenticated, show dashboard
     return (
-      <div className="dashboard-container">
-        <h1>Dashboard</h1>
-        <p>Signed in as {session.user.email}</p>
-        {/* ... Dashboard content ... */}
-        <button id="show-all" onClick={ showAll }>Show All Employees</button>
-        <AddEmployee />
-        <DeleteEmployee />
-        <SearchEmployee />
+      <div className="welcome-half-a">
+        <div className="dashboard-container">
+          <h1>Dashboard</h1>
+          <p>Signed in as {session.user.email}</p>
+          {/* ... Dashboard content ... */}
+          <button id="show-all" onClick={ showAll }>Show All Employees</button>
+          <AddEmployee />
+          <DeleteEmployee />
+          <SearchEmployee />
+        </div>
       </div>
     )
   }

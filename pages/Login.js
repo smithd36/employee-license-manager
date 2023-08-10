@@ -11,15 +11,9 @@ export default function Login() {
   }
 
 
-  return <>
-  <div className="session-container">
-    <div className="session">
-        <img className="welcome-image" alt="welcome-image" id="welcome-image" />
-        <h1>Not signed in</h1> <br/>
-        <button className="session" id="toggle-signin" onClick={() => signIn()}>Sign in</button>
-      </div>
-      <div className="page-color">
-      </div>
+  return (
+    <div className="session-container">
+      <button className="session" id="toggle-signin" onClick={() => signIn()}>Sign in</button>
     </div>
-  </>
+  )
 }
