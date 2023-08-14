@@ -33,7 +33,7 @@ button {
   flex-direction: column;
   background-image: url("https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?cs=srgb&dl=pexels-stephan-seeber-1261728.jpg&fm=jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center center;
   align-items: center;
   margin: 0;
@@ -186,9 +186,17 @@ button {
 
 /* SHOW ALL EMPLOYEES SECTION (i.e. pages/EmployeeList.js) */
 .employee-list-container {
-  background-color: #181818;
-  color: #fff;
+  background-color: #fff;
+  color: #181818;
   border: 1px solid #ccc
+}
+
+#back-btn {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 10rem;
+  height: 3rem;
+  background-color: #007bff;
 }
 
 .table-container table {
@@ -204,16 +212,9 @@ button {
   white-space: nowrap; /* Prevent text from wrapping */
 }
 
-/* Alternate background colors for table rows */
-.table-container tr:nth-child(even) {
-  background-color: #f2f2f2;
-  color: #181818;
-}
-
 /* Hover effect for table rows */
 .table-container tr:hover {
   background-color: #e0e0e0;
-  color: #181818;
 }
 
 /* Media queries for responsive layout */
@@ -255,4 +256,4 @@ button {
         color: #666666;
       }
     }
-  }  
+  }
