@@ -47,7 +47,7 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
         console.log("Employee details updated successfully");
         setShowEditForm(false); // Close the edit form
         // Refresh the page to show the updated data
-        router.reload(window.location.pathname);
+        router.push("/EmployeeList");
 
       } else {
         console.error("Error updating employee details");
@@ -62,19 +62,6 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
         <div className="edit-employee-form-container">
         <form onSubmit={handleSubmit(onSubmit)}>
             <button onClick={() => setShowEditForm(false)} id="close-btn">X</button>
-            <label>Name:</label>
-            <input
-                type="text"
-                {...register("NAME")}
-                defaultValue={selectedEmployee.NAME}
-            />
-
-            <label>Email:</label>
-            <input
-                type="text"
-                {...register("EMAIL", { required: true })}
-                defaultValue={selectedEmployee.EMAIL}
-            />
 
             {/* Use type="date" for date inputs */}
             <label>cevoIss:</label>
