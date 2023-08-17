@@ -14,10 +14,6 @@ const EmployeeList = () => {
     handleRedirect();
   }, []);
 
-  useEffect(() => {
-    console.log("selectedEmployee state:", selectedEmployee);
-  }, [selectedEmployee]);
-
   const handleEdit = (employee) => {
     setSelectedEmployee(employee);
     setShowEditForm(true);
