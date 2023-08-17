@@ -27,15 +27,15 @@ const AddEmployee = () => {
   const [employeeData, setEmployeeData] = useState({
     NAME: "",
     EMAIL: "",
-    cevoIss: undefined,
-    dotExp: undefined,
-    palsExp: undefined,
-    aclsExp: undefined,
-    emsExp: undefined,
-    driversExp: undefined,
-    blsExp: undefined,
+    cevoIss: null,
+    dotExp: null,
+    palsExp: null,
+    aclsExp: null,
+    emsExp: null,
+    driversExp: null,
+    blsExp: null,
     licensureLevel: "",
-    mvrExp: undefined,
+    mvrExp: null,
   });
 
   const [showForm, setShowForm] = useState(false);

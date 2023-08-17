@@ -66,67 +66,67 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
             <input
                 type="text"
                 {...register("NAME", { required: true })}
-                defaultValue={selectedEmployee.NAME || ""}
+                defaultValue={selectedEmployee.NAME}
             />
 
             <label>Email:</label>
             <input
-                type="email"
+                type="text"
                 {...register("EMAIL", { required: true })}
                 defaultValue={selectedEmployee.EMAIL}
             />
 
             {/* Use type="date" for date inputs */}
-            <label>CEVO Issue:</label>
+            <label>cevoIss:</label>
             <input
             type="date"
             {...register("cevoIss")}
             defaultValue={selectedEmployee.cevoIss ? selectedEmployee.cevoIss.substring(0, 10) : ""}
             />
 
-            <label>DOT Expiration:</label>
+            <label>dotExp:</label>
             <input
             type="date"
             {...register("dotExp")}
             defaultValue={selectedEmployee.dotExp ? selectedEmployee.dotExp.substring(0, 10) : ""}
             />
 
-            <label>PALS Expiration</label>
+            <label>palsExp</label>
             <input
             type="date"
             {...register("palsExp")}
             defaultValue={selectedEmployee.palsExp ? selectedEmployee.palsExp.substring(0, 10) : ""}
             />
 
-            <label>ACLS Expiration:</label>
+            <label>aclsExp:</label>
             <input
             type="date"
             {...register("aclsExp")}
             defaultValue={selectedEmployee.aclsExp ? selectedEmployee.aclsExp.substring(0, 10) : ""}
             />
 
-            <label>EMS Expiration:</label>
+            <label>emsExp:</label>
             <input
             type="date"
             {...register("emsExp")}
             defaultValue={selectedEmployee.emsExp ? selectedEmployee.emsExp.substring(0, 10) : ""}
             />
 
-            <label>BLS Expiration</label>
+            <label>blsExp</label>
             <input
             type="date"
             {...register("blsExp")}
             defaultValue={selectedEmployee.blsExp ? selectedEmployee.blsExp.substring(0, 10) : ""}
             />
 
-            <label>Licensure Level:</label>
+            <label>licensureLevel:</label>
             <input
                 type="text"
                 {...register("licensureLevel")}
                 defaultValue={selectedEmployee.licensureLevel}
             />
 
-            <label>MVR Expiration:</label>
+            <label>mvrExp:</label>
             <input
             type="date"
             {...register("mvrExp")}
