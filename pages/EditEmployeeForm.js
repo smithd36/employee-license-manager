@@ -47,7 +47,7 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
         console.log("Employee details updated successfully");
         setShowEditForm(false); // Close the edit form
         // Refresh the page to show the updated data
-        router.push("/EmployeeList");
+        router.reload(window.location.pathname);
 
       } else {
         console.error("Error updating employee details");
@@ -66,60 +66,60 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
             {/* Use type="date" for date inputs */}
             <label>cevoIss:</label>
             <input
-            type="date"
-            {...register("cevoIss")}
-            defaultValue={selectedEmployee.cevoIss ? selectedEmployee.cevoIss.substring(0, 10) : ""}
+              type="date"
+              {...register("cevoIss")}
+              defaultValue={selectedEmployee?.cevoIss ? selectedEmployee.cevoIss.substring(0, 10) : ""}
             />
 
             <label>dotExp:</label>
             <input
-            type="date"
-            {...register("dotExp")}
-            defaultValue={selectedEmployee.dotExp ? selectedEmployee.dotExp.substring(0, 10) : ""}
+              type="date"
+              {...register("dotExp")}
+              defaultValue={selectedEmployee?.dotExp ? selectedEmployee.dotExp.substring(0, 10) : ""}
             />
 
-            <label>palsExp</label>
+            <label>palsExp:</label>
             <input
-            type="date"
-            {...register("palsExp")}
-            defaultValue={selectedEmployee.palsExp ? selectedEmployee.palsExp.substring(0, 10) : ""}
+              type="date"
+              {...register("palsExp")}
+              defaultValue={selectedEmployee?.palsExp ? selectedEmployee.palsExp.substring(0, 10) : ""}
             />
 
             <label>aclsExp:</label>
             <input
-            type="date"
-            {...register("aclsExp")}
-            defaultValue={selectedEmployee.aclsExp ? selectedEmployee.aclsExp.substring(0, 10) : ""}
+              type="date"
+              {...register("aclsExp")}
+              defaultValue={selectedEmployee?.aclsExp ? selectedEmployee.aclsExp.substring(0, 10) : ""}
             />
 
             <label>emsExp:</label>
             <input
-            type="date"
-            {...register("emsExp")}
-            defaultValue={selectedEmployee.emsExp ? selectedEmployee.emsExp.substring(0, 10) : ""}
+              type="date"
+              {...register("emsExp")}
+              defaultValue={selectedEmployee?.emsExp ? selectedEmployee.emsExp.substring(0, 10) : ""}
             />
 
-            <label>blsExp</label>
+            <label>blsExp:</label>
             <input
-            type="date"
-            {...register("blsExp")}
-            defaultValue={selectedEmployee.blsExp ? selectedEmployee.blsExp.substring(0, 10) : ""}
+              type="date"
+              {...register("blsExp")}
+              defaultValue={selectedEmployee?.blsExp ? selectedEmployee.blsExp.substring(0, 10) : ""}
             />
 
             <label>licensureLevel:</label>
             <input
-                type="text"
-                {...register("licensureLevel")}
-                defaultValue={selectedEmployee.licensureLevel}
+              type="text"
+              {...register("licensureLevel")}
+              defaultValue={selectedEmployee?.licensureLevel ? selectedEmployee.licensureLevel : ""}
             />
 
             <label>mvrExp:</label>
             <input
-            type="date"
-            {...register("mvrExp")}
-            defaultValue={selectedEmployee.mvrExp ? selectedEmployee.mvrExp.substring(0, 10) : ""}
+              type="date"
+              {...register("mvrExp")}
+              defaultValue={selectedEmployee?.mvrExp ? selectedEmployee.mvrExp.substring(0, 10) : ""}
             />
-
+            
             <button id="save-btn" type="submit">Save Changes</button>    
         </form>
         </div>
