@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email, NAME, cevoIss, dotExp, palsExp, aclsExp, emsExp, blsExp, licensureLevel, mvrExp } = req.body;
+  const { email, name, cevoIss, dotExp, palsExp, aclsExp, emsExp, blsExp, licensureLevel, mvrExp } = req.body;
 
   // Helper function to parse date fields only if not null
   const parseDateIfNotNull = (dateString) => (dateString ? parseISO(dateString) : null);
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const updatedEmployee = await prisma.employees.update({
       where: { EMAIL: email },
       data: {
-        NAME: NAME,
+        NAME: name,
         cevoIss: parseDateIfNotNull(cevoIss),
         dotExp: parseDateIfNotNull(dotExp),
         palsExp: parseDateIfNotNull(palsExp),
