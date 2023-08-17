@@ -8,7 +8,7 @@ const EmployeeList = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const [showEditForm, setShowEditForm] = useState(false);
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [selectedEmployee, setSelectedEmployee] = useState("");
   
   useEffect(() => {
     handleRedirect();
