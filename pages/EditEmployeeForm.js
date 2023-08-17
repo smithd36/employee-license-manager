@@ -71,7 +71,7 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
 
             <label>Email:</label>
             <input
-                type="text"
+                type="email"
                 {...register("email", { required: true })}
                 defaultValue={selectedEmployee.EMAIL}
             />
