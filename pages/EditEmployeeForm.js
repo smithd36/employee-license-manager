@@ -31,7 +31,7 @@ const EditEmployeeForm = ({ selectedEmployee, setShowEditForm }) => {
         },
         body: JSON.stringify({
           email: selectedEmployee.EMAIL,
-          name: data.name,
+          name: data.NAME,
           cevoIss: data.cevoIss,
           dotExp: data.dotExp,
           palsExp: data.palsExp,
