@@ -1,40 +1,62 @@
-/* Beginning generic page styles - some may be blank as this program is 
-  developed with a primary backend focus and I am 3 days into the development process */
-
+/* Global Styles */
 * {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
 
 input {
-    color: black;
-  }
+  color: black;
+}
 
 button {
-    border-style: groove;
-    border-width: 0.25rem;
-    color: #dbdbdb;
-    background: transparent;
-    transition: 0.3s ease;
+  border-width: 0.25rem;
+  border-radius: 0.6rem;
+  color: #181818;
+  background: white;
+  transition: 0.3s ease;
 
-    &:hover {
-    box-shadow: 0 0 10px rgba(219, 152, 27, 0.5);
-    transform: scale(1.1);
+  &:hover {
+      box-shadow: 0 0 10px rgba(219, 152, 27, 0.5);
+      transform: scale(1.1);
   }
 }
 
-/*LOGIN SECTION*/
+/* LOGIN SECTION */
+.dashboard-container {
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ff0000 0%, grey 100%);
+  // cover beyond page
+  background-size: cover;
+  // position relative to parent
+  position: relative;
+  // height 100% of parent
+  height: 100vh;
+  // width 100% of parent
+  width: 100vw;
+  // display flex
+  display: flex;
+  // flex direction column
+  flex-direction: column;
+  // overflow hidden
+  overflow: scroll;
+  color: #181818;
+  border: 1px solid #ccc;
+}
+
 .welcome-half-a {
   display: flex;
   flex-direction: column;
   background-image: url("https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?cs=srgb&dl=pexels-stephan-seeber-1261728.jpg&fm=jpg");
   background-size: cover;
-  background-repeat: repeat;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -75,7 +97,7 @@ button {
   height: 5vh;
 
   &:hover {
-    background-color: #007bff;
+      background-color: #007bff;
   }
 }
 
@@ -87,116 +109,145 @@ button {
 }
 
 /* DASHBOARD SECTION */
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem; /* Add a margin to push the content down */
-
-    #show-all {
-        margin-left: -16rem;
-        margin-bottom: 0.5rem;
-    }
+#sign-out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: #181818;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-/* ADD EMPLOYEE SECTION */ // THIS CODE WILL BE MODERNIZED, ONE MAN ARMY HERE
-.add-wrapper {
-    .addEmp-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        border: 1px solid #ccc;
-        padding: 1rem;
-        border-radius: 4px;
-        max-width: 500px;
-        margin: -0.7rem 0;
-        opacity: 0; /* Initially set the opacity to 0 */
-        pointer-events: none; /* Disable interactions with the hidden form */
-        transition: opacity 0.8s ease;
-      
-        &.show {
-          opacity: 1;
-          pointer-events: auto; /* Enable interactions when shown */
-          margin-top: 1rem;
-        }
-      
-        h2 {
-          grid-column: 1 / -1;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-        }
-      
-        label {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-      
-          input {
-            padding: 0.2rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-          }
-        }
-      
-        button {
-          grid-column: 1 / -1;
-          padding: 0.75rem 1rem;
-          background-color: #007bff;
-          color: #fff;
-          border: none;
-          border-radius: 20px;
-          cursor: pointer;
-          font-size: 1rem;
-      
-          &:hover {
-            background-color: #0056b3;
-          }
-        }
-      }
-    }    
-    
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#show-all {
+  margin-left: -18.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ADD EMPLOYEE SECTION */
+.add-wrapper .addEmp-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 4px;
+  max-width: 500px;
+  margin: -0.7rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.add-wrapper .addEmp-container.show {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 1rem;
+}
+
+.add-wrapper .addEmp-container h2 {
+  grid-column: 1 / -1;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.add-wrapper .addEmp-container label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.add-wrapper .addEmp-container input {
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.add-wrapper .addEmp-container button {
+  grid-column: 1 / -1;
+  padding: 0.75rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+      background-color: #0056b3;
+  }
+}
 
 /* DELETE EMPLOYEE SECTION */
 .delete-wrapper {
-    margin-left: 0.5rem;
-    margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
 
-    #submit-delete {
-        margin-left: 1rem;
-    }
+  #submit-delete {
+      margin-left: 1rem;
+  }
 
-    #delete-email {
-        margin-left: 0.5125rem;
-    }
+  #delete-email {
+      margin-left: 0.5125rem;
+  }
 }
 
 /* SEARCH EMPLOYEE SECTION */
 .search-wrapper {
-    position: relative;
-    margin-top: -45.8rem;
-    margin-left: 10rem;
+  position: relative;
+  margin-top: -45.8rem;
+  margin-left: 10rem;
 
-    h2 {
-        font-size: 1rem;
-        margin-bottom: -0.1rem;
-    }
-
+  h2 {
+      font-size: 1rem;
+      margin-bottom: -0.1rem;
+  }
 }
 
-/* SHOW ALL EMPLOYEES SECTION (i.e. pages/EmployeeList.js) */
+/* SHOW ALL EMPLOYEES SECTION */
 .employee-list-container {
-  background-color: #fff;
+  // linear gradient red black background
+  background: linear-gradient(to bottom, #ff0000 0%, grey 100%);
+  // cover beyond page
+  background-size: cover;
+  // position relative to parent
+  position: relative;
+  // height 100% of parent
+  height: 100%;
+  // width 100% of parent
+  width: 100%;
+  // display flex
+  display: flex;
+  // flex direction column
+  flex-direction: column;
+  // overflow hidden
+  overflow: scroll;
   color: #181818;
-  border: 1px solid #ccc
+  border: 1px solid #ccc;
 }
 
 #back-btn {
-  margin-left: 1rem;
-  margin-top: 1rem;
   width: 10rem;
   height: 3rem;
-  background-color: #007bff;
+  background-color: #181818;
+  border: none;
+  color: #fff;
+
+    &:hover {
+      background-color: grey;
+  }
 }
 
 .table-container table {
@@ -206,54 +257,141 @@ button {
 
 .table-container th,
 .table-container td {
-  padding: 12px; /* Adjust padding for better spacing */
-  text-align: center; /* Center-align table headers and cells */
+  padding: 12px;
+  text-align: center;
   border-bottom: 1px solid #ddd;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap;
 }
 
-/* Hover effect for table rows */
 .table-container tr:hover {
   background-color: #e0e0e0;
 }
 
-/* Media queries for responsive layout */
 @media screen and (max-width: 600px) {
   .table-container th,
   .table-container td {
-    font-size: 14px;
+      font-size: 14px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .table-container th,
   .table-container td {
-    font-size: 12px;
+      font-size: 12px;
   }
 }
-  
-  .unauthorized-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f1f1f1;
-  
-    .unauthorized-content {
+
+/* EDIT EMPLOYEE SECTION */
+#edit-btn {
+  background-color: #181818;
+  color: #fff;
+}
+
+/* Popup Edit Overlay Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Make sure it's on top of other content */
+}
+
+.edit-employee-form-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  max-width: 80%; /* Adjust the width as needed */
+  line-height: 1.5rem;
+  text-align: center;
+
+  form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 4px;
+      max-width: 500px;
+      margin: -0.7rem 0;
+      cursor: pointer;
+      transition: opacity 0.8s ease;
+  }
+
+  #close-btn {
+      position: absolute;
+      width: 10vw;
+      height: 5vh;
+      top: 0;
+      right: 0;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: white;
+      color: #181818;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+  }
+
+  label {
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+
+  input {
+      padding: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+  }
+
+  #save-btn {
+      grid-column: 1 / -1;
+      padding: 0.75rem 1rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+
+      &:hover {
+          background-color: #0056b3;
+      }
+  }
+}
+
+/* UNAUTHORIZED PAGE */
+.unauthorized-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+
+  .unauthorized-content {
       padding: 20px;
       background-color: #ffffff;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       text-align: center;
-  
+
       h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
+          font-size: 24px;
+          margin-bottom: 10px;
       }
-  
+
       p {
-        font-size: 16px;
-        color: #666666;
+          font-size: 16px;
+          color: #666666;
       }
-    }
   }
+}

@@ -80,7 +80,7 @@ const AddEmployee = () => {
 
   return (
       <div className="add-wrapper">
-      <button id="add-toggle" onClick={handleClick}>Add Employee</button>
+      <button id="add-toggle" onClick={handleClick}>Add an Employee</button>
       <div className={`addEmp-container ${showForm ? 'show' : ''}`}>        <h2>Add Employee</h2>
       <label>
         Name:

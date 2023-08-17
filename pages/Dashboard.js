@@ -14,6 +14,11 @@ const Dashboard = () => {
     handleRedirect();
   }, []);
 
+  const handleSignout = async () => {
+    await signOut();
+    router.push("/Login");
+  }
+
   const handleRedirect = async () => {
     //check if user email is within allowed list
     const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
@@ -38,12 +43,13 @@ const Dashboard = () => {
   if (status == "authenticated") {
     // user authenticated, show dashboard
     return (
-      <div className="welcome-half-a">
-        <div className="dashboard-container">
+      <div className="dashboard-container">
+        <div className="dashboard">
+        <button id="sign-out" onClick={handleSignout}>Sign out</button>
           <h1>Dashboard</h1>
           <p>Signed in as {session.user.email}</p>
           {/* ... Dashboard content ... */}
-          <button id="show-all" onClick={ showAll }>Show All</button>
+          <button id="show-all" onClick={ showAll }>Show All Employees (Edit)</button>
           <AddEmployee />
           <DeleteEmployee />
           <SearchEmployee />
