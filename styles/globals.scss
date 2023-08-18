@@ -37,7 +37,7 @@ button {
   // position relative to parent
   position: relative;
   // height 100% of parent
-  height: 100vh;
+  height: 130vh;
   // width 100% of parent
   width: 100vw;
   // display flex
@@ -131,7 +131,7 @@ button {
 }
 
 #show-all {
-  margin-left: -18.5rem;
+  margin-left: -16.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -139,7 +139,6 @@ button {
 .add-wrapper .addEmp-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 4px;
@@ -152,13 +151,13 @@ button {
 
 .add-wrapper .addEmp-container.show {
   opacity: 1;
+  margin-top: 0.5rem;
   pointer-events: auto;
-  margin-top: 1rem;
 }
 
 .add-wrapper .addEmp-container h2 {
   grid-column: 1 / -1;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -172,7 +171,7 @@ button {
   padding: 0.2rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+  width: 70%;
 }
 
 .add-wrapper .addEmp-container button {
@@ -193,11 +192,6 @@ button {
 /* DELETE EMPLOYEE SECTION */
 .delete-wrapper {
   margin-left: 0.5rem;
-  margin-top: 1rem;
-
-  #submit-delete {
-      margin-left: 1rem;
-  }
 
   #delete-email {
       margin-left: 0.5125rem;
@@ -207,7 +201,7 @@ button {
 /* SEARCH EMPLOYEE SECTION */
 .search-wrapper {
   position: relative;
-  margin-top: -45.8rem;
+  margin-top: -36.5rem;
   margin-left: 10rem;
 
   h2 {

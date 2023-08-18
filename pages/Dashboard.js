@@ -49,7 +49,7 @@ const Dashboard = () => {
           <h1>Dashboard</h1>
           <p>Signed in as {session.user.email}</p>
           {/* ... Dashboard content ... */}
-          <button id="show-all" onClick={ showAll }>Show All Employees (Edit)</button>
+          <button id="show-all" onClick={ showAll }>Show All (Edit)</button>
           <AddEmployee />
           <DeleteEmployee />
           <SearchEmployee />
