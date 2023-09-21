@@ -1,6 +1,6 @@
 /* Global Styles */
 * {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Times';
 }
 
 body {
@@ -13,14 +13,9 @@ input {
 }
 
 button {
-  border-width: 0.25rem;
-  border-radius: 0.6rem;
-  color: #181818;
-  background: white;
   transition: 0.3s ease;
-
   &:hover {
-      box-shadow: 0 0 10px rgba(219, 152, 27, 0.5);
+      box-shadow: 0 0 10px rgb(201, 14, 14);
       transform: scale(1.1);
   }
 }
@@ -31,7 +26,7 @@ button {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: linear-gradient(to bottom, #ff0000 0%, grey 100%);
+  background: #181818;
   // cover beyond page
   background-size: cover;
   // position relative to parent
@@ -46,8 +41,8 @@ button {
   flex-direction: column;
   // overflow hidden
   overflow: scroll;
-  color: #181818;
   border: 1px solid #ccc;
+  color: #fff;
 }
 
 .welcome-half-a {
@@ -131,8 +126,44 @@ button {
 }
 
 #show-all {
-  margin-left: -16.5rem;
+  position: absolute; /* This makes it independent of the normal document flow */
+  top: 10rem; /* Adjust the top position as needed */
   margin-bottom: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+#add-toggle {
+  position: absolute; /* This makes it independent of the normal document flow */
+  left: 50%; /* Aligns it to the left edge of the page */
+  transform: translateX(-50%); /* Center the button horizontally */
+  top: 12.5rem; /* Adjust the top position as needed */
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+/* Style the search button if you have one */
+#search-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff; /* Adjust to your preferred button color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#submit-delete {
+  padding: 0.5rem 1rem;
+  background-color: #007bff; /* Adjust to your preferred button color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /* ADD EMPLOYEE SECTION */
@@ -147,12 +178,14 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s ease;
+  line-height: 1.5rem;
 }
 
 .add-wrapper .addEmp-container.show {
   opacity: 1;
   margin-top: 0.5rem;
   pointer-events: auto;
+  margin-top: 6rem;
 }
 
 .add-wrapper .addEmp-container h2 {
@@ -174,7 +207,7 @@ button {
   width: 70%;
 }
 
-.add-wrapper .addEmp-container button {
+.add-wrapper .addEmp-container #confirm-add {
   grid-column: 1 / -1;
   padding: 0.75rem 1rem;
   background-color: #007bff;
@@ -189,9 +222,30 @@ button {
   }
 }
 
+.add-wrapper .addEmp-container #close-form {
+  padding: 0.25rem 0.25rem;
+  background-color: #fff;
+  color: #181818;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  justify-self: end; /* Align the button to the end of the column (right) */
+  grid-column: 2; /* Place the button in the second column */
+}
+
 /* DELETE EMPLOYEE SECTION */
 .delete-wrapper {
-  margin-left: 0.5rem;
+  position: relative; /* Change to "absolute" if you want it relative to a parent element */
+  top: 8rem; /* Position at the top of the viewport or parent element */
+  left: 0rem; /* Adjust the left position as needed */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #181818;
+  font-size: 0.7rem;
 
   #delete-email {
       margin-left: 0.5125rem;
@@ -200,20 +254,47 @@ button {
 
 /* SEARCH EMPLOYEE SECTION */
 .search-wrapper {
-  position: relative;
-  margin-top: -36.5rem;
-  margin-left: 10rem;
+  position: relative; /* Change to "absolute" if you want it relative to a parent element */
+  top: 10rem; /* Position at the top of the viewport or parent element */
+  left: 0rem; /* Adjust the left position as needed */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  h2 {
-      font-size: 1rem;
-      margin-bottom: -0.1rem;
-  }
+.search-wrapper h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem; /* Adjust as needed for spacing */
+  color: #333; /* Optionally, change text color */
+}
+
+#search-field {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  font-size: 1rem;
+  color: #333; /* Text color */
+}
+
+#results {
+  margin-top: 0.5rem; /* Adjust as needed for spacing */
+  color: #333;
+}
+
+#delete-field {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  font-size: 1rem;
+  color: #333; /* Text color */
 }
 
 /* SHOW ALL EMPLOYEES SECTION */
 .employee-list-container {
-  // linear gradient red black background
-  background: linear-gradient(to bottom, #ff0000 0%, grey 100%);
   // cover beyond page
   background-size: cover;
   // position relative to parent
@@ -230,6 +311,85 @@ button {
   overflow: scroll;
   color: #181818;
   border: 1px solid #ccc;
+
+  .employee-list {
+    h2 {
+      font-size: 1.5rem; // Increase font size for the heading
+    }
+    
+    p {
+      font-size: 1rem; // Adjust font size for the description
+      margin-bottom: 1rem; // Add some spacing between the description and the table
+    }
+
+    .table-container {
+      overflow: auto;
+      max-width: 100%;
+      position: relative;
+      margin-top: 2rem;  // Position the table container as a reference for sticky headers
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem; // Reduce font size for table content
+        margin-bottom: 1rem; // Add spacing between the table and the buttons
+
+        th, td {
+          padding: 0.5rem 0.75rem; // Adjust cell padding for better spacing
+          border: 1px solid #ccc; // Add borders to cells
+          text-align: center; // Center-align content in cells
+        }
+
+        th {
+          position: sticky;
+          top: 0; /* Stick to the top of the container */
+          z-index: 1;
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+
+        td {
+          background-color: #ffffff; // White background for table data cells
+        }
+
+        tr {
+          &:nth-child(even) {
+            background-color: #f2f2f2; // Alternate row background color
+          }
+
+          &:hover {
+            background-color: #d9d9d9; // Hover effect for rows
+          }
+        }
+
+        button#edit-btn {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 0.25rem 0.5rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Add responsive styles as needed for smaller screens */
+@media (max-width: 768px) {
+  .employee-list-container {
+    .employee-list {
+      .table-container {
+        table {
+          font-size: 0.8rem; // Further reduce font size for smaller screens
+        }
+      }
+    }
+  }
 }
 
 #back-btn {
@@ -238,6 +398,9 @@ button {
   background-color: #181818;
   border: none;
   color: #fff;
+  border-radius: 20px;
+  margin-top: 1rem;
+  margin-left: 1rem;
 
     &:hover {
       background-color: grey;

@@ -31,11 +31,12 @@ const EmployeeList = () => {
 
   const formatDate = (date) => {
     if (date) {
-      return new Date(date).toLocaleDateString();
+      const options = { timeZone: 'America/Denver' }; // Use 'America/Denver' for Mountain Time Zone
+      return new Date(date).toLocaleDateString(undefined, options);
     } else {
       return ""; // Return an empty string if the date is null
     }
-  };
+  };  
 
   const handleBack = () => {
     // directs user to previous page
@@ -64,8 +65,6 @@ const EmployeeList = () => {
                 <th>Email</th>
                 <th>CEVO Iss</th>
                 <th>DOT Exp</th>
-                <th>PALS Exp</th>
-                <th>ACLS Exp</th>
                 <th>EMS Exp</th>
                 <th>Drivers Exp</th>
                 <th>BLS Exp</th>
@@ -80,8 +79,6 @@ const EmployeeList = () => {
                   <td>{employee.EMAIL}</td>
                   <td>{formatDate(employee.cevoIss)}</td>
                   <td>{formatDate(employee.dotExp)}</td>
-                  <td>{formatDate(employee.palsExp)}</td>
-                  <td>{formatDate(employee.aclsExp)}</td>
                   <td>{formatDate(employee.emsExp)}</td>
                   <td>{formatDate(employee.driversExp)}</td>
                   <td>{formatDate(employee.blsExp)}</td>

@@ -4,7 +4,13 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const AddEmployee = () => {
+const AddEmployee = ({
+  showForm, // Use the prop directly
+  onToggleForm,
+  setShowDeleteEmployee,
+  setShowSearchEmployee, // Accept setShowSearchEmployee as a prop
+}) => {
+
   //auth
   const router = useRouter(); // used for redirecting
   const { data: session } = useSession(); // grab session data
@@ -38,13 +44,6 @@ const AddEmployee = () => {
     mvrExp: null,
   });
 
-  const [showForm, setShowForm] = useState(false);
-
-  const handleClick = () => {
-    // sets showForm to the opposite of its current value
-    setShowForm((prevValue) => !prevValue);
-  };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEmployeeData((prevData) => ({
@@ -66,7 +65,6 @@ const AddEmployee = () => {
       if (response.ok) {
         // Employee added successfully
         alert("Employee added successfully!");
-        // You can do any other actions you want after successful addition
       } else {
         const data = await response.json();
         alert(`Error adding employee: ${data.error}`);
@@ -75,13 +73,21 @@ const AddEmployee = () => {
       console.error("Error adding employee:", error);
       alert("Error adding employee. Please try again.");
     }
-    handleClick();
+    handleToggleForm();
   };
+
+  const handleToggleForm = () => {
+    // Update the state in the Dashboard component by calling the prop function
+    onToggleForm(false);
+    setShowDeleteEmployee(true); // Set other states as needed
+    setShowSearchEmployee(true); // Set other states as needed
+  };  
 
   return (
       <div className="add-wrapper">
-      <button id="add-toggle" onClick={handleClick}>Add an Employee</button>
-      <div className={`addEmp-container ${showForm ? 'show' : ''}`}>        <h2>Add Employee</h2>
+      <div className={`addEmp-container ${showForm ? 'show' : ''}`}> 
+      <button id="close-form" onClick={handleToggleForm}>Close Form</button>
+      <h2>Add Employee</h2>
       <label>
         Name:
         <input
@@ -181,7 +187,7 @@ const AddEmployee = () => {
           onChange={handleInputChange}
         />
       </label>
-      <button onClick={handleAddEmployee}>Add Employee</button>
+      <button id="confirm-add" onClick={handleAddEmployee}>Add Employee</button>
     </div>
     </div>
   );

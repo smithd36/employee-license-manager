@@ -71,13 +71,13 @@ const DeleteEmployee = () => {
       <div className="deleteEmp-container">
       <form onSubmit={handleDelete}>
         <label>
-          Email:
           <input
-          id="delete-email"
+            id="delete-field"
             type="email"
             name="email"
             value={email}
             onChange={handleInputChange}
+            placeholder="Enter email"
             required
           />
         </label>
