@@ -1,552 +1,552 @@
 /* Global Styles */
-* {
-  font-family: 'Times';
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-input {
-  color: black;
-}
-
-button {
-  transition: 0.3s ease;
-  &:hover {
-      box-shadow: 0 0 10px rgb(201, 14, 14);
-      transform: scale(1.1);
-  }
-}
-
-/* LOGIN SECTION */
-.dashboard-container {
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: #181818;
-  // cover beyond page
-  background-size: cover;
-  // position relative to parent
-  position: relative;
-  // height 100% of parent
-  height: 130vh;
-  // width 100% of parent
-  width: 100vw;
-  // display flex
-  display: flex;
-  // flex direction column
-  flex-direction: column;
-  // overflow hidden
-  overflow: scroll;
-  border: 1px solid #ccc;
-  color: #fff;
-}
-
-.welcome-half-a {
-  display: flex;
-  flex-direction: column;
-  background-image: url("https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?cs=srgb&dl=pexels-stephan-seeber-1261728.jpg&fm=jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}
-
-.welcome-half-b {
-  background-color: #181818;
-  height: 70vh;
-  width: 80vh;
-  position: fixed;
-  bottom: 15vh;
-  padding: 1vh 1vw;
-}
-
-.welcome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-.welcome img {
-  width: 75%;
-  margin-bottom: -45vh;
-}
-
-.session {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 35vh auto;
-  background-color: #0056b3;
-  border: none;
-  width: 15vw;
-  height: 5vh;
-
-  &:hover {
-      background-color: #007bff;
-  }
-}
-
-#lottie-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-}
-
-/* DASHBOARD SECTION */
-#sign-out {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: white;
-  color: #181818;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-#show-all {
-  position: absolute; /* This makes it independent of the normal document flow */
-  top: 10rem; /* Adjust the top position as needed */
-  margin-bottom: 0.5rem;
-  border-radius: 20px;
-  border: none;
-  font-size: 1rem;
-  line-height: 1.8rem;
-}
-
-#add-toggle {
-  position: absolute; /* This makes it independent of the normal document flow */
-  left: 50%; /* Aligns it to the left edge of the page */
-  transform: translateX(-50%); /* Center the button horizontally */
-  top: 12.5rem; /* Adjust the top position as needed */
-  border-radius: 20px;
-  border: none;
-  font-size: 1rem;
-  line-height: 1.8rem;
-}
-
-/* Style the search button if you have one */
-#search-button {
-  padding: 0.5rem 1rem;
-  background-color: #007bff; /* Adjust to your preferred button color */
-  color: #fff; /* Button text color */
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-#submit-delete {
-  padding: 0.5rem 1rem;
-  background-color: #007bff; /* Adjust to your preferred button color */
-  color: #fff; /* Button text color */
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* ADD EMPLOYEE SECTION */
-.add-wrapper .addEmp-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 4px;
-  max-width: 500px;
-  margin: -0.7rem 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.8s ease;
-  line-height: 1.5rem;
-}
-
-.add-wrapper .addEmp-container.show {
-  opacity: 1;
-  margin-top: 0.5rem;
-  pointer-events: auto;
-  margin-top: 6rem;
-}
-
-.add-wrapper .addEmp-container h2 {
-  grid-column: 1 / -1;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.add-wrapper .addEmp-container label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.add-wrapper .addEmp-container input {
-  padding: 0.2rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 70%;
-}
-
-.add-wrapper .addEmp-container #confirm-add {
-  grid-column: 1 / -1;
-  padding: 0.75rem 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-
-  &:hover {
-      background-color: #0056b3;
-  }
-}
-
-.add-wrapper .addEmp-container #close-form {
-  padding: 0.25rem 0.25rem;
-  background-color: #fff;
-  color: #181818;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  justify-self: end; /* Align the button to the end of the column (right) */
-  grid-column: 2; /* Place the button in the second column */
-}
-
-/* DELETE EMPLOYEE SECTION */
-.delete-wrapper {
-  position: relative; /* Change to "absolute" if you want it relative to a parent element */
-  top: 8rem; /* Position at the top of the viewport or parent element */
-  left: 0rem; /* Adjust the left position as needed */
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: #181818;
-  font-size: 0.7rem;
-
-  #delete-email {
-      margin-left: 0.5125rem;
-  }
-}
-
-/* SEARCH EMPLOYEE SECTION */
-.search-wrapper {
-  position: relative; /* Change to "absolute" if you want it relative to a parent element */
-  top: 10rem; /* Position at the top of the viewport or parent element */
-  left: 0rem; /* Adjust the left position as needed */
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.search-wrapper h2 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem; /* Adjust as needed for spacing */
-  color: #333; /* Optionally, change text color */
-}
-
-#search-field {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 3px;
-  background-color: #f2f2f2;
-  font-size: 1rem;
-  color: #333; /* Text color */
-}
-
-#results {
-  margin-top: 0.5rem; /* Adjust as needed for spacing */
-  color: #333;
-}
-
-#delete-field {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 3px;
-  background-color: #f2f2f2;
-  font-size: 1rem;
-  color: #333; /* Text color */
-}
-
-/* SHOW ALL EMPLOYEES SECTION */
-.employee-list-container {
-  // cover beyond page
-  background-size: cover;
-  // position relative to parent
-  position: relative;
-  // height 100% of parent
-  height: 100%;
-  // width 100% of parent
-  width: 100%;
-  // display flex
-  display: flex;
-  // flex direction column
-  flex-direction: column;
-  // overflow hidden
-  overflow: scroll;
-  color: #181818;
-  border: 1px solid #ccc;
-
-  .employee-list {
-    h2 {
-      font-size: 1.5rem; // Increase font size for the heading
-    }
-    
-    p {
-      font-size: 1rem; // Adjust font size for the description
-      margin-bottom: 1rem; // Add some spacing between the description and the table
-    }
-
-    .table-container {
-      overflow: auto;
-      max-width: 100%;
-      position: relative;
-      margin-top: 2rem;  // Position the table container as a reference for sticky headers
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem; // Reduce font size for table content
-        margin-bottom: 1rem; // Add spacing between the table and the buttons
-
-        th, td {
-          padding: 0.5rem 0.75rem; // Adjust cell padding for better spacing
-          border: 1px solid #ccc; // Add borders to cells
-          text-align: center; // Center-align content in cells
-        }
-
-        th {
-          position: sticky;
-          top: 0; /* Stick to the top of the container */
-          z-index: 1;
-          background-color: #f2f2f2;
-          font-weight: bold;
-        }
-
-        td {
-          background-color: #ffffff; // White background for table data cells
-        }
-
-        tr {
-          &:nth-child(even) {
-            background-color: #f2f2f2; // Alternate row background color
-          }
-
-          &:hover {
-            background-color: #d9d9d9; // Hover effect for rows
-          }
-        }
-
-        button#edit-btn {
-          background-color: #007bff;
-          color: #fff;
-          border: none;
-          padding: 0.25rem 0.5rem;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-
-          &:hover {
-            background-color: #0056b3;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* Add responsive styles as needed for smaller screens */
-@media (max-width: 768px) {
-  .employee-list-container {
-    .employee-list {
-      .table-container {
-        table {
-          font-size: 0.8rem; // Further reduce font size for smaller screens
-        }
-      }
-    }
-  }
-}
-
-#back-btn {
-  width: 10rem;
-  height: 3rem;
-  background-color: #181818;
-  border: none;
-  color: #fff;
-  border-radius: 20px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-
-    &:hover {
-      background-color: grey;
-  }
-}
-
-.table-container table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-container th,
-.table-container td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-  white-space: nowrap;
-}
-
-.table-container tr:hover {
-  background-color: #e0e0e0;
-}
-
-@media screen and (max-width: 600px) {
-  .table-container th,
-  .table-container td {
-      font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .table-container th,
-  .table-container td {
-      font-size: 12px;
-  }
-}
-
-/* EDIT EMPLOYEE SECTION */
-#edit-btn {
-  background-color: #181818;
-  color: #fff;
-}
-
-/* Popup Edit Overlay Styles */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Make sure it's on top of other content */
-}
-
-.edit-employee-form-container {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  max-width: 80%; /* Adjust the width as needed */
-  line-height: 1.5rem;
-  text-align: center;
-
-  form {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      border: 1px solid #ccc;
-      padding: 1rem;
-      border-radius: 4px;
-      max-width: 500px;
-      margin: -0.7rem 0;
-      cursor: pointer;
-      transition: opacity 0.8s ease;
+  * {
+    font-family: 'Times';
   }
 
-  #close-btn {
-      position: absolute;
-      width: 10vw;
-      height: 5vh;
-      top: 0;
-      right: 0;
-      margin: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: white;
-      color: #181818;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1rem;
-  }
-
-  label {
-      font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+  body {
+    margin: 0;
+    padding: 0;
   }
 
   input {
-      padding: 0.2rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
+    color: black;
   }
 
-  #save-btn {
-      grid-column: 1 / -1;
-      padding: 0.75rem 1rem;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1rem;
+  button {
+    transition: 0.3s ease;
+    &:hover {
+        box-shadow: 0 0 10px rgb(201, 14, 14);
+        transform: scale(1.1);
+    }
+  }
+
+  /* LOGIN SECTION */
+  .dashboard-container {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #181818;
+    // cover beyond page
+    background-size: cover;
+    // position relative to parent
+    position: relative;
+    // height 100% of parent
+    height: 130vh;
+    // width 100% of parent
+    width: 100vw;
+    // display flex
+    display: flex;
+    // flex direction column
+    flex-direction: column;
+    // overflow hidden
+    overflow: scroll;
+    border: 1px solid #ccc;
+    color: #fff;
+  }
+
+  .welcome-half-a {
+    display: flex;
+    flex-direction: column;
+    background-image: url("https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?cs=srgb&dl=pexels-stephan-seeber-1261728.jpg&fm=jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+
+  .welcome-half-b {
+    background-color: #181818;
+    height: 70vh;
+    width: 80vh;
+    position: fixed;
+    bottom: 15vh;
+    padding: 1vh 1vw;
+  }
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .welcome img {
+    width: 75%;
+    margin-bottom: -45vh;
+  }
+
+  .session {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 35vh auto;
+    background-color: #0056b3;
+    border: none;
+    width: 15vw;
+    height: 5vh;
+
+    &:hover {
+        background-color: #007bff;
+    }
+  }
+
+  #lottie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+  }
+
+  /* DASHBOARD SECTION */
+  #sign-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #181818;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  #show-all {
+    position: absolute; /* This makes it independent of the normal document flow */
+    top: 10rem; /* Adjust the top position as needed */
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+
+  #add-toggle {
+    position: absolute; /* This makes it independent of the normal document flow */
+    left: 50%; /* Aligns it to the left edge of the page */
+    transform: translateX(-50%); /* Center the button horizontally */
+    top: 12.5rem; /* Adjust the top position as needed */
+    border-radius: 20px;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+
+  /* Style the search button if you have one */
+  #search-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Adjust to your preferred button color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #submit-delete {
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Adjust to your preferred button color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* ADD EMPLOYEE SECTION */
+  .add-wrapper .addEmp-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
+    max-width: 500px;
+    margin: -0.7rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    line-height: 1.5rem;
+  }
+
+  .add-wrapper .addEmp-container.show {
+    opacity: 1;
+    margin-top: 0.5rem;
+    pointer-events: auto;
+    margin-top: 6rem;
+  }
+
+  .add-wrapper .addEmp-container h2 {
+    grid-column: 1 / -1;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .add-wrapper .addEmp-container label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .add-wrapper .addEmp-container input {
+    padding: 0.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 70%;
+  }
+
+  .add-wrapper .addEmp-container #confirm-add {
+    grid-column: 1 / -1;
+    padding: 0.75rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+  }
+
+  .add-wrapper .addEmp-container #close-form {
+    padding: 0.25rem 0.25rem;
+    background-color: #fff;
+    color: #181818;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    justify-self: end; /* Align the button to the end of the column (right) */
+    grid-column: 2; /* Place the button in the second column */
+  }
+
+  /* DELETE EMPLOYEE SECTION */
+  .delete-wrapper {
+    position: relative; /* Change to "absolute" if you want it relative to a parent element */
+    top: 8rem; /* Position at the top of the viewport or parent element */
+    left: 0rem; /* Adjust the left position as needed */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #181818;
+    font-size: 0.7rem;
+
+    #delete-email {
+        margin-left: 0.5125rem;
+    }
+  }
+
+  /* SEARCH EMPLOYEE SECTION */
+  .search-wrapper {
+    position: relative; /* Change to "absolute" if you want it relative to a parent element */
+    top: 10rem; /* Position at the top of the viewport or parent element */
+    left: 0rem; /* Adjust the left position as needed */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-wrapper h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem; /* Adjust as needed for spacing */
+    color: #333; /* Optionally, change text color */
+  }
+
+  #search-field {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    font-size: 1rem;
+    color: #333; /* Text color */
+  }
+
+  #results {
+    margin-top: 0.5rem; /* Adjust as needed for spacing */
+    color: #333;
+  }
+
+  #delete-field {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    font-size: 1rem;
+    color: #333; /* Text color */
+  }
+
+  /* SHOW ALL EMPLOYEES SECTION */
+  .employee-list-container {
+    // cover beyond page
+    background-size: cover;
+    // position relative to parent
+    position: relative;
+    // height 100% of parent
+    height: 100%;
+    // width 100% of parent
+    width: 100%;
+    // display flex
+    display: flex;
+    // flex direction column
+    flex-direction: column;
+    // overflow hidden
+    overflow: scroll;
+    color: #181818;
+    border: 1px solid #ccc;
+
+    .employee-list {
+      h2 {
+        font-size: 1.5rem; // Increase font size for the heading
+      }
+      
+      p {
+        font-size: 1rem; // Adjust font size for the description
+        margin-bottom: 1rem; // Add some spacing between the description and the table
+      }
+
+      .table-container {
+        overflow: auto;
+        max-width: 100%;
+        position: relative;
+        margin-top: 2rem;  // Position the table container as a reference for sticky headers
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 0.9rem; // Reduce font size for table content
+          margin-bottom: 1rem; // Add spacing between the table and the buttons
+
+          th, td {
+            padding: 0.5rem 0.75rem; // Adjust cell padding for better spacing
+            border: 1px solid #ccc; // Add borders to cells
+            text-align: center; // Center-align content in cells
+          }
+
+          th {
+            position: sticky;
+            top: 0; /* Stick to the top of the container */
+            z-index: 1;
+            background-color: #f2f2f2;
+            font-weight: bold;
+          }
+
+          td {
+            background-color: #ffffff; // White background for table data cells
+          }
+
+          tr {
+            &:nth-child(even) {
+              background-color: #f2f2f2; // Alternate row background color
+            }
+
+            &:hover {
+              background-color: #d9d9d9; // Hover effect for rows
+            }
+          }
+
+          button#edit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: #0056b3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Add responsive styles as needed for smaller screens */
+  @media (max-width: 768px) {
+    .employee-list-container {
+      .employee-list {
+        .table-container {
+          table {
+            font-size: 0.8rem; // Further reduce font size for smaller screens
+          }
+        }
+      }
+    }
+  }
+
+  #back-btn {
+    width: 10rem;
+    height: 3rem;
+    background-color: #181818;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 1rem;
+    margin-left: 1rem;
 
       &:hover {
-          background-color: #0056b3;
-      }
+        background-color: grey;
+    }
   }
-}
 
-/* UNAUTHORIZED PAGE */
-.unauthorized-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #fff;
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-  .unauthorized-content {
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      text-align: center;
+  .table-container th,
+  .table-container td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+  }
+
+  .table-container tr:hover {
+    background-color: #e0e0e0;
+  }
+
+  @media screen and (max-width: 600px) {
+    .table-container th,
+    .table-container td {
+        font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .table-container th,
+    .table-container td {
+        font-size: 12px;
+    }
+  }
+
+  /* EDIT EMPLOYEE SECTION */
+  #edit-btn {
+    background-color: #181818;
+    color: #fff;
+  }
+
+  /* Popup Edit Overlay Styles */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Make sure it's on top of other content */
+  }
+
+  .edit-employee-form-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%; /* Adjust the width as needed */
+    line-height: 1.5rem;
+    text-align: center;
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 4px;
+        max-width: 500px;
+        margin: -0.7rem 0;
+        cursor: pointer;
+        transition: opacity 0.8s ease;
+    }
+
+    #close-btn {
+        position: absolute;
+        width: 10vw;
+        height: 5vh;
+        top: 0;
+        right: 0;
+        margin: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: white;
+        color: #181818;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    label {
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    input {
+        padding: 0.2rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    #save-btn {
+        grid-column: 1 / -1;
+        padding: 0.75rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+  }
+
+  /* UNAUTHORIZED PAGE */
+  .unauthorized-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+
+    .unauthorized-content {
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        text-align: center;
 
       h1 {
           font-size: 24px;
           margin-bottom: 10px;
       }
 
-      p {
+        p {
           font-size: 16px;
           color: #666666;
       }

@@ -1,24 +1,39 @@
+/**
+ * Author: Drey Smith
+ * 
+ * This page displays a list of all employees in the database.
+ * It also allows the user to edit employee data.
+ * 
+ * @since 2023-05-17
+ * @updated 09/24/2023
+ */
+
 import React, { useState, useEffect } from 'react';
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react"; // to confirm user is logged in
 import { useRouter } from "next/router";
 import EditEmployeeForm from "./EditEmployeeForm";
 
 const EmployeeList = () => {
+
+  // Declare state variables
   const [employees, setEmployees] = useState([]);
   const { data: session } = useSession();
   const router = useRouter();
   const [showEditForm, setShowEditForm] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState([]);
   
+  // Redirect user if not logged in or not authorized
   useEffect(() => {
     handleRedirect();
   }, []);
 
+  // Handle the edit button
   const handleEdit = (employee) => {
     setSelectedEmployee(employee);
     setShowEditForm(true);
   };
 
+  // Redirect user if not logged in or not authorized
   const handleRedirect = async () => {
     //check if user email is within allowed list
     const allowedEmails = ["dreysmith101@gmail.com", "piglife60@gmail.com"];
@@ -31,7 +46,7 @@ const EmployeeList = () => {
 
   const formatDate = (date) => {
     if (date) {
-      const options = { timeZone: 'America/Denver' }; // Use 'America/Denver' for Mountain Time Zone
+      const options = { timeZone: 'GMT' }; // for Mountain Time Zone
       return new Date(date).toLocaleDateString(undefined, options);
     } else {
       return ""; // Return an empty string if the date is null
