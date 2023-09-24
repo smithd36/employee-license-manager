@@ -1,5 +1,6 @@
-# ResQCert License Manager Web App
-ResQCert is a license management web application I developed that is actively being used in the medical industry. The main purpose is to track licensure for a large database of employees and notify administration upon nearing expirations. The website uses NextAuth to authenticate a user through Google and is directed to the database management system.
+# License Manager Web App
+A license management web application I developed that is actively being used. The main purpose is to track licensure for a large database of employees and notify administration upon nearing expirations. The website uses NextAuth to authenticate a user through Google and is directed to the database management system.
+
 # Usage
 This program is not meant to be cloned or modified, but can be ran on one's own database and authentication server through
 - git clone
